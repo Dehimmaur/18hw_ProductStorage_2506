@@ -33,8 +33,16 @@ class ProductStorageTest {
 
         assertTrue(storage.addProduct(newProduct1));
         assertTrue(storage.addProduct(newProduct3));
-        //assertTrue(storage.addProduct(newProduct3));
+        assertTrue(storage.addProduct(newProduct3));
         assertFalse(storage.addProduct(newProduct2));
+
+        Product newProduct4 = new Product("id40001001", "Farm Chicken", "Meat", 39 , -50);
+        Product newProduct5 = new Product("id40001001", "Farm Chicken", "Meat", 39 , 0);
+        assertFalse(storage.addProduct(newProduct4));
+        assertFalse(storage.addProduct(newProduct5));
+
+        storage.removeProduct("id40001001");
+        assertTrue(storage.addProduct(newProduct5));
     }
 
     @Test

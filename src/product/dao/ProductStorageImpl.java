@@ -13,7 +13,17 @@ public class ProductStorageImpl implements ProductStorage{
 
     @Override
     public boolean addProduct(Product product) {
-        if ((product == null) || (size == products.length) || (findProductById(product.getId()) != null)) {
+        if (product == null) { return false;}
+        if (findProductById(product.getId()) != null) {
+            for (int i = 0; i < size; i++) {
+                if (product.getId().equals(products[i].getId())){
+                    if (product.getQuantity() <= 0) {return false;}
+                    products[i].setQuantity(products[i].getQuantity() + product.getQuantity());
+                    return true;
+                }
+            }
+        }
+        if (size == products.length) {
             return false;
         }
         products[size++] = product;
