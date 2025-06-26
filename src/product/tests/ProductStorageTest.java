@@ -16,7 +16,7 @@ class ProductStorageTest {
     void setUp() {
         storage = new ProductStorageImpl(5);
         testStorage = new Product[3];
-        testStorage[0] = new Product("id10001001", "Milk", "Milk products", 7.9, 500);
+        testStorage[0] = new Product("id10001001", "Milk", "Milk food", 7.9, 500);
         testStorage[1] = new Product("id20001001", "Bread Darnitskiy", "Breads", 15.8, 500);
         testStorage[2] = new Product("id30001001", "Chocolate Dubai", "Sweets", 21.4, 100);
         for (Product product : testStorage) {
@@ -65,8 +65,8 @@ class ProductStorageTest {
     void findProductsByName() {
         assertNull(storage.findProductsByName(null));
 
-        Product newProduct1 = new Product("id10001002", "Milk", "Milk products", 8.5, 500);
-        Product newProduct2 = new Product("id10001003", "Milk", "Milk products", 12.5, 200);
+        Product newProduct1 = new Product("id10001002", "Milk", "Milk food", 8.5, 500);
+        Product newProduct2 = new Product("id10001003", "Milk", "Milk food", 12.5, 200);
 
         assertTrue(storage.addProduct(newProduct1));
         assertTrue(storage.addProduct(newProduct2));
@@ -81,8 +81,8 @@ class ProductStorageTest {
     void findProductsByCategory() {
         assertNull(storage.findProductsByCategory(null));
 
-        Product newProduct1 = new Product("id10001002", "Milk", "Milk products", 8.5, 500);
-        Product newProduct2 = new Product("id10001003", "Milk", "Milk products", 12.5, 200);
+        Product newProduct1 = new Product("id10001002", "Milk", "Milk food", 8.5, 500);
+        Product newProduct2 = new Product("id10001003", "Milk", "Milk food", 12.5, 200);
         assertTrue(storage.addProduct(newProduct1));
         assertTrue(storage.addProduct(newProduct2));
 
@@ -95,8 +95,8 @@ class ProductStorageTest {
     @Test
     void findProductsByPrice() {
 
-        Product newProduct1 = new Product("id10001002", "Milk", "Milk products", 8.5, 500);
-        Product newProduct2 = new Product("id10001003", "Milk", "Milk products", 12.5, 200);
+        Product newProduct1 = new Product("id10001002", "Milk", "Milk food", 8.5, 500);
+        Product newProduct2 = new Product("id10001003", "Milk", "Milk food", 12.5, 200);
         double minPrice = 10.0;
         assertTrue(storage.addProduct(newProduct1));
         assertTrue(storage.addProduct(newProduct2));
@@ -109,8 +109,8 @@ class ProductStorageTest {
 
     @Test
     void findProductsByQuantity() {
-        Product newProduct1 = new Product("id10001002", "Milk", "Milk products", 8.5, 1000);
-        Product newProduct2 = new Product("id10001003", "Milk", "Milk products", 12.5, 2000);
+        Product newProduct1 = new Product("id10001002", "Milk", "Milk food", 8.5, 1000);
+        Product newProduct2 = new Product("id10001003", "Milk", "Milk food", 12.5, 2000);
         int minQuantity = 500;
         int maxQuantity = 1000;
         assertTrue(storage.addProduct(newProduct1));

@@ -31,5 +31,4 @@ public interface ProductStorage {
     }
 
     Product[] findProductsByPredicate(Predicate<Product> predicate);
-
 }

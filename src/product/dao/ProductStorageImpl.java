@@ -2,7 +2,6 @@ package product.dao;
 
 import product.model.Product;
 
-import java.sql.Driver;
 import java.util.function.Predicate;
 
 public class ProductStorageImpl implements ProductStorage{
@@ -60,8 +59,6 @@ public class ProductStorageImpl implements ProductStorage{
             System.out.println(product);
         }
     }
-
-
 
     @Override
     public Product[] findProductsByPredicate(Predicate<Product> predicate) {
